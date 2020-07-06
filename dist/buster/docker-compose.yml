@@ -1,0 +1,11 @@
+version: '2.4'
+services:
+  app:
+    build:                                  # Uncomment to enable local build
+      context: ../..
+      dockerfile: ./dist/buster/Dockerfile
+      args:
+        - ANGULARCLI_VERSION
+        - ANGULARBUILD_VERSION
+    image: vathes/angulardev:angcli${ANGULARCLI_VERSION}-angbuild${ANGULARBUILD_VERSION}
+    command: ng version
